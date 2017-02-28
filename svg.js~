@@ -1,0 +1,15 @@
+var button = document.getElementById("b"); 
+var c = document.getElementById("canvas");
+
+button.addEventListener("click", function(){
+    var ctx = c.getContext('2d');
+    ctx.beginPath();
+    ctx.clearRect(0,0,c.clientWidth,c.clientHeight);	
+});
+
+var dots = function(e){
+
+};
+
+
+c.addEventListener("click", dots);
