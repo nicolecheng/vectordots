@@ -5,19 +5,19 @@ var x = 0;
 var y = 0;
 
 button.addEventListener("click", function(){
-    while (svg.lastChild) {
-	svg.removeChild(svg.lastChild);
+    while (s.lastChild) {
+	s.removeChild(s.lastChild);
     }
     started = false;
 });
 
 var dots = function(e){
     if(!started){
-	var x = e.clientX-10;
-	var y = e.clientY-80;
+	x = e.offsetX;
+	y = e.offsetY;
     }
-    var tempx = e.clientX-10;
-    var tempy = e.clientY-80;
+    var tempx = e.offsetX;
+    var tempy = e.offsetY;
     var c = document.createElementNS("http://www.w3.org/2000/svg","circle");
     c.setAttribute("cx",tempx); // set center x-val to 0
     c.setAttribute("cy",tempy);
@@ -31,7 +31,11 @@ var dots = function(e){
 	m.setAttribute("x2",tempx);
 	m.setAttribute("y2",tempy);
 	m.setAttribute("stroke","black");
+	m.setAttribute("stroke-width","1");
+	s.appendChild(m);
     }
+    x = tempx;
+    y = tempy;
     started = true;
 };
 
